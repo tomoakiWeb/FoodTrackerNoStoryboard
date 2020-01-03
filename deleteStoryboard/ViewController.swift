@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     //参照されるときに初めて初期値が設定されるプロパティ プロパティが必要になったときに初めて値を設定したいときに使える機能
     lazy var mealNameLabel = self.createMealLabel()
     lazy var nameTextField = self.createNameTextField()
-    lazy var textButton = self.createTextButton()
     lazy var photoImageView = self.createPhotoImageView()
 
     override func viewDidLoad() {
@@ -29,13 +28,14 @@ class ViewController: UIViewController {
     
     private func createMealLabel() -> UILabel {
         let mealNameLabel = UILabel(frame: CGRect(x: 0, y:view.safeAreaInsets.top + 80  , width: view.frame.width, height:30 ))
+        mealNameLabel.textAlignment = .center
         mealNameLabel.text = "Meal Name"
         mealNameLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
         return mealNameLabel
     }
     
     private func createNameTextField() -> UITextField {
-        let nameTextField: UITextField = UITextField(frame:CGRect(x: 0, y: mealNameLabel.frame.maxY+12, width: view.frame.width, height: 30))
+        let nameTextField: UITextField = UITextField(frame:CGRect(x: 20, y: mealNameLabel.frame.maxY+12, width: view.frame.width - 20*2, height: 30))
         nameTextField.delegate = self
         nameTextField.placeholder = "Enter meal name"
         nameTextField.borderStyle = .roundedRect
@@ -46,18 +46,9 @@ class ViewController: UIViewController {
         return nameTextField
     }
     
-    private func createTextButton() -> UIButton {
-        let textButton = UIButton(frame: CGRect(x: 0, y: nameTextField.frame.maxY+12, width: 200, height: 30))
-        textButton.setTitle("Set Default Label Text", for: .normal)
-        textButton.setTitleColor(.black, for: .normal)
-        textButton.contentHorizontalAlignment = .left
-        textButton.addTarget(self, action: #selector(self.setDefaultLabelText(_:)), for:.touchUpInside)
-        return textButton
-    }
-    
     private func createPhotoImageView() -> UIImageView {
         let photoImageView = UIImageView(image: UIImage(named: "defaultPhoto"))
-        photoImageView.frame = CGRect(x: 20, y: textButton.frame.maxY+5, width: view.frame.width - 20*2, height: view.frame.width - 20*2)
+        photoImageView.frame = CGRect(x: 20, y: nameTextField.frame.maxY+5, width: view.frame.width - 20*2, height: view.frame.width - 20*2)
         photoImageView.isUserInteractionEnabled = true
         photoImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.selectImageFromPhotoLibrary(_:))))
         return photoImageView
@@ -76,14 +67,13 @@ class ViewController: UIViewController {
     private func layoutView() {
         self.view.addSubview(mealNameLabel)
         self.view.addSubview(nameTextField)
-        self.view.addSubview(textButton)
         self.view.addSubview(photoImageView)
         self.view.addSubview(self.ratingControl)
     }
     
     private func constraints() {
         ratingControl.topAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: 10).isActive = true
-        ratingControl.leadingAnchor.constraint(equalTo: photoImageView.leadingAnchor).isActive = true
+        ratingControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     @objc private func setDefaultLabelText(_ sender:UIButton){
