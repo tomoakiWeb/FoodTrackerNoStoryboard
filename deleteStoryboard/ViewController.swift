@@ -11,7 +11,6 @@ import UIKit
 
 class ViewController: UIViewController {
     //参照されるときに初めて初期値が設定されるプロパティ プロパティが必要になったときに初めて値を設定したいときに使える機能
-    lazy var mealNameLabel = self.createMealLabel()
     lazy var nameTextField = self.createNameTextField()
     lazy var photoImageView = self.createPhotoImageView()
 
@@ -26,16 +25,8 @@ class ViewController: UIViewController {
         self.constraints()
     }
     
-    private func createMealLabel() -> UILabel {
-        let mealNameLabel = UILabel(frame: CGRect(x: 0, y:view.safeAreaInsets.top + 80  , width: view.frame.width, height:30 ))
-        mealNameLabel.textAlignment = .center
-        mealNameLabel.text = "Meal Name"
-        mealNameLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
-        return mealNameLabel
-    }
-    
     private func createNameTextField() -> UITextField {
-        let nameTextField: UITextField = UITextField(frame:CGRect(x: 20, y: mealNameLabel.frame.maxY+12, width: view.frame.width - 20*2, height: 30))
+        let nameTextField: UITextField = UITextField(frame:CGRect(x: 20, y: 15, width: view.frame.width - 20*2, height: 30))
         nameTextField.delegate = self
         nameTextField.placeholder = "Enter meal name"
         nameTextField.borderStyle = .roundedRect
@@ -65,7 +56,6 @@ class ViewController: UIViewController {
     } ()
     
     private func layoutView() {
-        self.view.addSubview(mealNameLabel)
         self.view.addSubview(nameTextField)
         self.view.addSubview(photoImageView)
         self.view.addSubview(self.ratingControl)
@@ -74,10 +64,6 @@ class ViewController: UIViewController {
     private func constraints() {
         ratingControl.topAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: 10).isActive = true
         ratingControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-    }
-    
-    @objc private func setDefaultLabelText(_ sender:UIButton){
-        mealNameLabel.text = "Defalut Text"
     }
     
 }
@@ -90,7 +76,7 @@ extension ViewController: UITextFieldDelegate, UINavigationControllerDelegate, U
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        mealNameLabel.text = textField.text
+        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

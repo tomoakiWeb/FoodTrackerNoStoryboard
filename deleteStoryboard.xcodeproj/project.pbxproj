@@ -15,6 +15,8 @@
 		3226A10323BE2E1400C71F60 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226A10223BE2E1400C71F60 /* RatingControl.swift */; };
 		3226A10523BF204E00C71F60 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226A10423BF204E00C71F60 /* Meal.swift */; };
 		3226A10D23BF239900C71F60 /* unitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226A10C23BF239900C71F60 /* unitTest.swift */; };
+		3226A11523BF28EA00C71F60 /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226A11423BF28EA00C71F60 /* MealTableViewController.swift */; };
+		3226A11723BF2EC000C71F60 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226A11623BF2EC000C71F60 /* MealTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		3226A10A23BF239900C71F60 /* unitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = unitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3226A10C23BF239900C71F60 /* unitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitTest.swift; sourceTree = "<group>"; };
 		3226A10E23BF239900C71F60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3226A11423BF28EA00C71F60 /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
+		3226A11623BF2EC000C71F60 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,8 @@
 				3226A0FA23BC76A400C71F60 /* Info.plist */,
 				3226A10023BC77B600C71F60 /* ViewController.xib */,
 				3226A10423BF204E00C71F60 /* Meal.swift */,
+				3226A11423BF28EA00C71F60 /* MealTableViewController.swift */,
+				3226A11623BF2EC000C71F60 /* MealTableViewCell.swift */,
 			);
 			path = deleteStoryboard;
 			sourceTree = "<group>";
@@ -203,7 +209,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3226A11523BF28EA00C71F60 /* MealTableViewController.swift in Sources */,
 				3226A10523BF204E00C71F60 /* Meal.swift in Sources */,
+				3226A11723BF2EC000C71F60 /* MealTableViewCell.swift in Sources */,
 				3226A0F123BC76A300C71F60 /* ViewController.swift in Sources */,
 				3226A10323BE2E1400C71F60 /* RatingControl.swift in Sources */,
 				3226A0ED23BC76A300C71F60 /* AppDelegate.swift in Sources */,

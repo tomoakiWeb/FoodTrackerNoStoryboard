@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         //セットアップ
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = UINavigationController(rootViewController: ViewController(nibName: "ViewController", bundle: nil))
+        self.window?.rootViewController = UINavigationController(rootViewController: MealTableViewController())
         self.window?.makeKeyAndVisible()
         return true
     }
